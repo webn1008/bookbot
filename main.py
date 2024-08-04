@@ -11,21 +11,23 @@ def main():
         words = file_contents.split()
         print(len(words))
 
-    def character_count(text):
-        
+    def character_count():
+        char_dict = {}
+    
         with open("books/Frankenstein.txt") as f:
-            char_dict = {}
             file_contents = f.read()
-            character_string = file_contents
-            lower_case_string = character_string.lower()
-            if lower_case_string in char_dict:
-                char_dict[lower_case_string] += 1
-            else:
-                char_dict[lower_case_string] = 1
-        return char_dict
+        
+        for char in file_contents:
+            lower_case_char = char.lower()
+            if lower_case_char.isalpha():
+                if lower_case_char in char_dict:
+                    char_dict[lower_case_char] += 1
+                else:
+                    char_dict[lower_case_char] = 1
+        print(char_dict)
 
     book_bot()
     word_count('string')
-    character_count('text')
+    character_count()
 
 main()
