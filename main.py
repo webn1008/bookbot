@@ -1,9 +1,6 @@
-import string
+def main():
 
-
-def book_bot():
-
-    def main():
+    def book_bot():
         with open("books/Frankenstein.txt") as f:
             file_contents = f.read()
         print(file_contents)
@@ -13,7 +10,22 @@ def book_bot():
             file_contents = f.read()
         words = file_contents.split()
         print(len(words))
-    main()
-    word_count('string')
 
-book_bot()
+    def character_count(text):
+        
+        with open("books/Frankenstein.txt") as f:
+            char_dict = {}
+            file_contents = f.read()
+            character_string = file_contents
+            lower_case_string = character_string.lower()
+            if lower_case_string in char_dict:
+                char_dict[lower_case_string] += 1
+            else:
+                char_dict[lower_case_string] = 1
+        return char_dict
+
+    book_bot()
+    word_count('string')
+    character_count('text')
+
+main()
