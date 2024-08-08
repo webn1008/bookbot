@@ -13,10 +13,10 @@ def main():
 
     def character_count():
         char_dict = {}
-    
+
         with open("books/Frankenstein.txt") as f:
             file_contents = f.read()
-        
+
         for char in file_contents:
             lower_case_char = char.lower()
             if lower_case_char.isalpha():
@@ -24,9 +24,13 @@ def main():
                     char_dict[lower_case_char] += 1
                 else:
                     char_dict[lower_case_char] = 1
-        print(char_dict)
+        return char_dict
 
-    book_bot()
+    char_list = []
+    char_list.append(character_count())
+    char_list.sort(reverse=True)
+    print(char_list)
+    # book_bot()
     word_count('string')
     character_count()
 
